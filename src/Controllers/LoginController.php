@@ -24,6 +24,8 @@ class LoginController
 
     /**
      * Handle an authentication attempt.
+     * 
+     * @throws Illuminate\Validation\ValidationException
      */
     public function login(Request $request): RedirectResponse
     {
