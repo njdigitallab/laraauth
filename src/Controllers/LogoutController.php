@@ -20,6 +20,6 @@ class LogoutController
  
         $request->session()->regenerateToken();
  
-        return redirect(Laraauth::getLogoutRoute());
+        return redirect(Laraauth::getLogoutRedirectRoute());
     }
 }
