@@ -9,7 +9,7 @@ use NjDigitalLab\Laraauth\Controllers\RegisterController;
 use NjDigitalLab\Laraauth\Controllers\ResetPasswordController;
 use NjDigitalLab\Laraauth\Facades\Laraauth;
 
-Route::middleware(Laraauth::getGuestMiddlewares())->group(function () {
+Route::middleware(Laraauth::getGuestRoutesMiddlewares())->group(function () {
     // Login
     Route::get('login', [LoginController::class, 'view'])->name('login');
     Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -27,7 +27,7 @@ Route::middleware(Laraauth::getGuestMiddlewares())->group(function () {
     Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('password.store');
 });
 
-Route::middleware(Laraauth::getAuthMiddlewares())->group(function () {
+Route::middleware(Laraauth::getAuthRoutesMiddlewares())->group(function () {
     // Verify Email
     Route::get('verify-email', [EmailVerificationController::class, 'notice'])
         ->name('verification.notice');
