@@ -1,0 +1,26 @@
+{
+    "name": "njdigitallab/laraauth",
+    "description": "An authentication package for laravel",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NjDigitalLab\\Laraauth\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jenry Ollivierre",
+            "email": "jenry@jenryollivierre.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NjDigitalLab\\Laraauth\\Providers\\AppServiceProvider"
+            ]
+        }
+    }
+}
