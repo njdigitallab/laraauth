@@ -1,4 +1,4 @@
 {
-    "/public/css/auth.css": "/public/css/auth.css",
-    "/Projects/Dummy/public/laraauth/css/auth.css": "/Projects/Dummy/public/laraauth/css/auth.css"
+    "/public/css/app.css": "/public/css/app.css",
+    "/Projects/dummy/public/vendor/nj-digital-lab/laraauth/css/app.css": "/Projects/dummy/public/vendor/nj-digital-lab/laraauth/css/app.css"
 }
