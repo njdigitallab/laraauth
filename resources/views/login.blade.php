@@ -3,12 +3,10 @@
 @section('title', 'Login')
 
 @section('content')
-    @if (Session::Has('status'))
-        {{ session('status') }}
-    @endif
-
     <form method="POST" class="auth-form" action="{{ route('login') }}">
         @csrf
+
+        @include('laraauth::partials.status')
         
         <div class="form-group">
             <label for="email">Email</label>
