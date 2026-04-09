@@ -1,6 +1,6 @@
 @extends('laraauth::layouts.guest')
 
-@section('title', 'Login')
+@section('title', 'Forgot Password')
 
 @section('content')
     <form class="auth-form" method="POST" action="{{ route('password.email') }}">
