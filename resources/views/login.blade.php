@@ -38,12 +38,12 @@
 
         <div class="mt-4 items-center flex justify-end">
             @if (Route::has('password.request'))
-                <a class="forgot-password-link" href="{{ route('password.request') }}">
+                <a id="forgot-password-link" class="form-link" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
 
-            <button type="submit" class="login-button">Login</button>
+            <button type="submit" id="login-button" class="submit-button">Login</button>
         </div>
     </form>
 @endsection
