@@ -52,7 +52,7 @@
             ])
         </div>
 
-        <div class="mt-4 items-center flex justify-end">
+        <div class="button-container">
             <a id="register-login-link" class="form-link" href="{{ route('login') }}">
                 {{ __('Login') }}
             </a>

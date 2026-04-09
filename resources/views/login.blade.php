@@ -34,7 +34,7 @@
             </label>
         </div>
 
-        <div class="mt-4 items-center flex justify-end">
+        <div class="button-container">
             @if (Route::has('password.request'))
                 <a id="forgot-password-link" class="form-link" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}

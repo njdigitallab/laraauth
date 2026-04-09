@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-title: Poppins, sans-serif;
+  --font-body: Open Sans, sans-serif;
+}
+
+@source "../views/**/*.blade.php";
+
+#laraauth-body {
+    @apply bg-slate-100 min-h-screen;
+}
+
+#page-container {
+    @apply flex flex-col justify-center items-center min-h-screen;
+}
+
+#page-header {
+    @apply mb-4 font-title;
+}
+
+#page-content {
+    @apply flex flex-col items-center w-full px-8 font-body;
+}
+
+.auth-form {
+    @apply bg-white w-full px-8 py-12 border border-gray-200 rounded;
+
+    @variant sm {
+        @apply w-lg;
+    }
+}
+
+.form-group {
+    @apply mb-4 flex flex-col font-title;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    @apply font-bold mb-1;
+}
+
+.form-control {
+    @apply px-1 py-1 border border-gray-300;
+}
+
+.submit-button {
+    @apply bg-gray-700 text-white px-4 py-2 rounded;
+}
+
+.submit-button:hover {
+    @apply bg-gray-800 cursor-pointer;
+}
+
+.button-container {
+    @apply mt-4 flex items-center justify-end;
+}
+
+.form-link {
+    @apply me-3 underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+}
+
+/* Login */
+.remember-me-checkbox {
+    @apply rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500;
+}
+
+.remember-me-text {
+    @apply ms-2 text-sm text-gray-600;
+}

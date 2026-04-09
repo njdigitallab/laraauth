@@ -1,4 +1,4 @@
-@extends('laraauth::layouts.guest')
+@extends('laraauth::layouts.auth')
 
 @section('title', 'Verify Email')
 
@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-            <div class="mt-4 items-center flex justify-end">
+            <div class="button-container">
                 <a id="verify-email-link" class="form-link" onclick="document.getElementById('logout-form').submit();" href="">
                     {{ __('Log Out') }}
                 </a>

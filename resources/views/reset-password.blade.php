@@ -40,7 +40,7 @@
             ])
         </div>
 
-        <div class="mt-4 items-center flex justify-end">
+        <div class="button-container">
             <a id="reset-password-login-link" class="form-link" href="{{ route('login') }}">
                 {{ __('Login') }}
             </a>
