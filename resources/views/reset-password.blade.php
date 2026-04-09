@@ -1,6 +1,6 @@
 @extends('laraauth::layouts.guest')
 
-@section('title', 'Register')
+@section('title', 'Reset Password')
 
 @section('content')
 
