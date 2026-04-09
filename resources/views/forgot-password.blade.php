@@ -26,7 +26,9 @@
                 {{ __('Login') }}
             </a>
 
-            <button type="submit" class="submit-button">{{ __('Email Password Reset Link') }}</button>
+            <button type="submit" id="forgot-password-button" class="submit-button">
+                {{ __('Email Password Reset Link') }}
+            </button>
         </div>
     </form>
 @endsection

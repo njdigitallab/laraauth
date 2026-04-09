@@ -41,7 +41,9 @@
                 </a>
             @endif
 
-            <button type="submit" id="login-button" class="submit-button">Login</button>
+            <button type="submit" id="login-button" class="submit-button">
+                {{ __('Log in') }}
+            </button>
         </div>
     </form>
 @endsection
