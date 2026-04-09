@@ -12,7 +12,7 @@
         
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" name="email" class="form-control" value="{{ old('email') }}" required autofocus autocomplete="email">
+            <input type="text" id="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus autocomplete="email">
 
             @include('laraauth::partials.errors', [
                 'errorName' => 'email'
@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" required autocomplete="new-password">
+            <input type="password" id="password" name="password" class="form-control" required autocomplete="new-password">
 
             @include('laraauth::partials.errors', [
                 'errorName' => 'password'
