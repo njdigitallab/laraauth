@@ -5,6 +5,16 @@ namespace NjDigitalLab\Laraauth\Facades;
 class Laraauth
 {
     /**
+     * Whether to show a logo or not.
+     */
+    private static bool $showLogo = false;
+
+    /**
+     * The logo path.
+     */
+    private static ?string $logoPath = null;
+
+    /**
      * The login redirect path.
      */
     private static string $loginRedirectPath = '/';
@@ -63,6 +73,31 @@ class Laraauth
      * The middlewares to apply to the auth routes.
      */
     private static array $authRoutesMiddlewares = ['web', 'auth'];
+
+    /**
+     * Indicate that we should show the logo.
+     */
+    public static function showLogo(string $logoPath): void
+    {
+        static::$showLogo = true;
+        static::$logoPath = $logoPath;
+    }
+
+    /**
+     * Check whether to show the logo.
+     */
+    public static function shouldShowLogo(): bool
+    {
+        return static::$showLogo;
+    }
+
+    /**
+     * Get the logo path.
+     */
+    public static function logoPath(): string
+    {
+        return static::$logoPath;
+    }
 
     /**
      * Set the login redirect path.

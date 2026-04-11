@@ -22,7 +22,11 @@
     <body id="laraauth-body">
         <div id="page-container">
             <div id="page-header">
-                {{ config('app.name') }}
+                @if (Laraauth::shouldShowLogo())
+                    <img class="logo" src="{{ Laraauth::logoPath() }}">
+                @else
+                    {{ config('app.name') }}
+                @endif
             </div>
             <div id="page-content">
                 @yield('content')
