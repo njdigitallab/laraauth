@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
         <!-- Stylesheets -->
-        <link href="{{ asset('vendor/nj-digital-lab/laraauth/css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('vendor/laraauth/css/app.css') }}" rel="stylesheet">
     </head>
     <body id="laraauth-body">
         <div id="page-container">
