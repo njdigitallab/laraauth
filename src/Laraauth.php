@@ -45,6 +45,11 @@ class Laraauth
     private static ?string $registerRedirectRouteName = null;
 
     /**
+     * Indicate if registration is allowed.
+     */
+    private static bool $allowRegistration = true;
+
+    /**
      * The logout redirect path.
      */
     private static string $logoutRedirectPath = '/';
@@ -195,6 +200,22 @@ class Laraauth
         }
 
         return static::$registerRedirectPath;
+    }
+
+    /**
+     * Indicate that we should disable registration.
+     */
+    public static function disableRegistration(): void
+    {
+        static::$allowRegistration = false;
+    }
+
+    /**
+     * Check if we should allow registration.
+     */
+    public static function shouldAllowRegistration(): bool
+    {
+        return static::$allowRegistration;
     }
 
     /**

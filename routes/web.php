@@ -15,8 +15,10 @@ Route::middleware(Laraauth::getGuestRoutesMiddlewares())->group(function () {
     Route::post('login', [LoginController::class, 'login'])->name('login');
 
     // Register
-    Route::get('register', [RegisterController::class, 'view'])->name('register');
-    Route::post('register', [RegisterController::class, 'register'])->name('register');
+    if (Laraauth::shouldAllowRegistration()) {
+        Route::get('register', [RegisterController::class, 'view'])->name('register');
+        Route::post('register', [RegisterController::class, 'register'])->name('register');
+    }
 
     // Forgot Password
     Route::get('forgot-password', [ForgotPasswordController::class, 'view'])->name('password.request');

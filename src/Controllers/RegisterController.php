@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
+use NjDigitalLab\Laraauth\Actions\GetRegistrationValidationRules;
+use NjDigitalLab\Laraauth\Actions\GetUserRegistrationAttributes;
 use NjDigitalLab\Laraauth\Laraauth;
 
 class RegisterController
@@ -27,19 +29,9 @@ class RegisterController
      */
     public function register(Request $request): RedirectResponse
     {
-        $request->validate([
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Password::defaults()],
-        ]);
+        $request->validate(GetRegistrationValidationRules::execute($request));
 
-        $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = User::create(GetUserRegistrationAttributes::execute($request));
 
         event(new Registered($user));
 

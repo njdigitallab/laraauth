@@ -7,23 +7,34 @@
     <form class="auth-form" method="POST" action="{{ route('register') }}">
         @csrf
 
-        <div class="form-group">
-            <label for="first_name">First Name</label>
-            <input type="text" id="first_name" name="first_name" class="form-control" value="{{ old('first_name') }}" required autofocus autocomplete="first-name">
-            
-            @include('laraauth::partials.errors', [
-                'errorName' => 'first_name'
-            ])
-        </div>
+        @if (Laraauth::shouldAllowFirstAndLastName())
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" class="form-control" value="{{ old('first_name') }}" required autofocus autocomplete="first-name">
+                
+                @include('laraauth::partials.errors', [
+                    'errorName' => 'first_name'
+                ])
+            </div>
 
-        <div class="form-group">
-            <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" class="form-control" value="{{ old('last_name') }}" required autocomplete="last-name">
-            
-            @include('laraauth::partials.errors', [
-                'errorName' => 'last_name'
-            ])
-        </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" class="form-control" value="{{ old('last_name') }}" required autocomplete="last-name">
+                
+                @include('laraauth::partials.errors', [
+                    'errorName' => 'last_name'
+                ])
+            </div>
+        @else
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}" required autofocus autocomplete="name">
+                
+                @include('laraauth::partials.errors', [
+                    'errorName' => 'name'
+                ])
+            </div>
+        @endif
 
         <div class="form-group">
             <label for="email">Email</label>
