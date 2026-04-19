@@ -63,11 +63,13 @@ Ignore step a and b if you prefer to edit the Laravel default user migration fil
 
 ### Login
 
-Login is available at `/login` url.
+Login is available at `/login` url and needs no configuration.
 
 ### Registration
 
 Registration is available at `/register` url. 
+
+If you are using first name and last name instead of name only for registration, refer to step 2 in the Getting Started section.
 
 You can disable registration by calling the Laraauth `disableRegistration` method in your `AppServiceProvider` register method.
 
@@ -83,9 +85,21 @@ public function register(): void
 }
 ```
 
-### Showing Site Logo
+### Verify Email
 
-If you prefer to show a logo instead of the site name, call the Laraauth `showLogo` method in your `AppServiceProvider` file and pass the full path to the image file you wish to use.
+Verify email works as per the default Laravel configuration. Just apply the `verified` middleware to the respective route and implement the `Illuminate\Contracts\Auth\MustVerifyEmail` contract on the User model.
+
+### Forgot Password
+
+Forgot password is available at `/forgot-password` url and need no configuration.
+
+### Confirm Password
+
+Confirm password works as per the default laravel configuration. Just apply the `password.confirm` middleware on the respective routes. No further configuration is needed.
+
+### Show Site Logo
+
+If you prefer to show a logo instead of the site name, call the Laraauth `showLogo` method in your `AppServiceProvider` boot method and pass the full url to the image file you wish to use.
 
 ```php
 use NjDigitalLab\Laraauth\Laraauth;
