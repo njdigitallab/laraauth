@@ -22,8 +22,14 @@ class AppServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'laraauth');
 
-        $this->publishes([
-            __DIR__.'/../../public/' => public_path('vendor/laraauth')
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../../public/' => public_path('vendor/laraauth')
+            ], 'laraauth-assets');
+
+            $this->publishesMigrations([
+                __DIR__.'/../../database/migrations' => database_path('migrations'),
+            ], 'laraauth-migrations');
+        }
     }
 }

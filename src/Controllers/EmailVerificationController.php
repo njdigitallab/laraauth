@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use NjDigitalLab\Laraauth\Facades\Laraauth;
+use NjDigitalLab\Laraauth\Laraauth;
 
 class EmailVerificationController
 {

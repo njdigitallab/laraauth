@@ -22,7 +22,7 @@
                 "NjDigitalLab\\Laraauth\\Providers\\AppServiceProvider"
             ],
             "aliases": {
-                "Laraauth": "NjDigitalLab\\Laraauth\\Facades\\Laraauth"
+                "Laraauth": "NjDigitalLab\\Laraauth\\Laraauth"
             }
         }
     }

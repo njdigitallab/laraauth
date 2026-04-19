@@ -1,9 +1,19 @@
 <?php
 
-namespace NjDigitalLab\Laraauth\Facades;
+namespace NjDigitalLab\Laraauth;
 
 class Laraauth
 {
+    /**
+     * Whether to use our stylesheet or not.
+     */
+    private static bool $useStylesheet = true;
+
+    /**
+     * Allow first and last name.
+     */
+    private static bool $allowFirstAndLastName = false;
+
     /**
      * Whether to show a logo or not.
      */
@@ -73,6 +83,38 @@ class Laraauth
      * The middlewares to apply to the auth routes.
      */
     private static array $authRoutesMiddlewares = ['web', 'auth'];
+
+    /**
+     * Disable our stylesheet.
+     */
+    public static function disableStylesheet(): void
+    {
+        static::$useStylesheet = false;
+    }
+
+    /**
+     * Check if we should use our stylesheet.
+     */
+    public static function shouldUseStylesheet(): bool
+    {
+        return static::$useStylesheet;
+    }
+
+    /**
+     * Indicate that we should allow first and last name.
+     */
+    public static function allowFirstAndLastName(): void
+    {
+        static::$allowFirstAndLastName = true;
+    }
+
+    /**
+     * Check if we should allow first and last name.
+     */
+    public static function shouldAllowFirstAndLastName(): bool
+    {
+        return static::$allowFirstAndLastName;
+    }
 
     /**
      * Indicate that we should show the logo.

@@ -5,7 +5,7 @@ namespace NjDigitalLab\Laraauth\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use NjDigitalLab\Laraauth\Facades\Laraauth;
+use NjDigitalLab\Laraauth\Laraauth;
 
 class LogoutController
 {

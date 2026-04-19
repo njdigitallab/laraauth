@@ -7,7 +7,7 @@ use NjDigitalLab\Laraauth\Controllers\LoginController;
 use NjDigitalLab\Laraauth\Controllers\LogoutController;
 use NjDigitalLab\Laraauth\Controllers\RegisterController;
 use NjDigitalLab\Laraauth\Controllers\ResetPasswordController;
-use NjDigitalLab\Laraauth\Facades\Laraauth;
+use NjDigitalLab\Laraauth\Laraauth;
 
 Route::middleware(Laraauth::getGuestRoutesMiddlewares())->group(function () {
     // Login

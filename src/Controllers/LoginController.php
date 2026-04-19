@@ -10,7 +10,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use NjDigitalLab\Laraauth\Actions\EnsureLoginIsNotRateLimited;
 use NjDigitalLab\Laraauth\Actions\GetLoginThrottleKey;
-use NjDigitalLab\Laraauth\Facades\Laraauth;
+use NjDigitalLab\Laraauth\Laraauth;
 
 class LoginController
 {
