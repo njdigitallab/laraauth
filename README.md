@@ -65,6 +65,20 @@ Ignore step a and b if you prefer to edit the Laravel default user migration fil
 
 Login is available at `/login` url and needs no configuration.
 
+### Logout
+
+To logout, send a post request to the logout route.
+
+```php
+
+<a href="" class="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    Logout
+</a>
+<form method="POST" style="display: hidden;" action="{{ route('logout') }}">
+    @csrf
+</form>
+```
+
 ### Registration
 
 Registration is available at `/register` url. 
