@@ -1,7 +1,7 @@
 @if ($errors->get($errorName))
-    <ul class="text-sm text-red-600 space-y-1">
+    <ul class="laraauth-errors">
         @foreach ($errors->get($errorName) as $message)
-            <li>{{ $message }}</li>
+            <li class="laraauth-error">{{ $message }}</li>
         @endforeach
     </ul>
 @endif

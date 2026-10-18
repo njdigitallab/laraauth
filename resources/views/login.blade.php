@@ -3,7 +3,7 @@
 @section('title', 'Login')
 
 @section('content')
-    <form method="POST" class="auth-form" action="{{ route('login') }}">
+    <form id="login-form" class="auth-form" method="POST" action="{{ route('login') }}">
         @csrf
 
         @include('laraauth::partials.status')

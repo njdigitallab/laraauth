@@ -3,10 +3,10 @@
 @section('title', 'Confirm Password')
 
 @section('content')
-    <form class="auth-form" method="POST" action="{{ route('password.confirm') }}">
+    <form id="confirm-password-form" class="auth-form" method="POST" action="{{ route('password.confirm') }}">
         @csrf
 
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="laraauth-message">
             {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
         </div>
 

@@ -7,6 +7,7 @@
 
 @source "../views/**/*.blade.php";
 
+/* General */
 #laraauth-body {
     @apply bg-slate-100 min-h-screen;
 }
@@ -27,6 +28,7 @@
     @apply max-h-32 max-w-32 h-auto w-auto;
 }
 
+/* Form */
 .auth-form {
     @apply bg-white w-full px-8 py-12 border border-gray-200 rounded;
 
@@ -51,16 +53,17 @@
     @apply px-1 py-1 border border-gray-300;
 }
 
+/* Buttons */
+.button-container {
+    @apply mt-4 flex items-center justify-end;
+}
+
 .submit-button {
     @apply bg-gray-700 text-white px-4 py-2 rounded;
 }
 
 .submit-button:hover {
     @apply bg-gray-800 cursor-pointer;
-}
-
-.button-container {
-    @apply mt-4 flex items-center justify-end;
 }
 
 .form-link {
@@ -74,4 +77,17 @@
 
 .remember-me-text {
     @apply ms-2 text-sm text-gray-600;
+}
+
+/* Partials */
+.laraauth-errors {
+    @apply text-sm text-red-600 space-y-1;
+}
+
+.laraauth-status {
+    @apply pb-4 font-medium text-sm text-green-600;
+}
+
+.laraauth-message {
+    @apply mb-4 text-sm text-gray-600;
 }

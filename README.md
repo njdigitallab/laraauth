@@ -13,6 +13,7 @@
 - [Show Site Logo](#Show-Site-Logo)
 - [Filter Registration Rules](#Filter-Registration-Rules)
 - [Filter Registration Attributes](#Filter-Registration-Attributes)
+- [Custom Styling](#Custom-Styling)
 
 ## About
 
@@ -162,5 +163,21 @@ public function register(): void
 
         return $attributes;
     });
+}
+```
+
+## Custom Styling
+
+If you want to use your own styling, you can disable the default stylesheet by adding `Laraauth::disableStylesheet()` to your AppServiceProvider register method.
+
+```php
+use NjDigitalLab\Laraauth\Laraauth;
+
+/**
+ * Register any application services.
+ */
+public function register(): void
+{
+    Laraauth::disableStylesheet();
 }
 ```

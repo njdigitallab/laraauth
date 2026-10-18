@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form class="auth-form" method="POST" action="{{ route('register') }}">
+    <form id="register-form" class="auth-form" method="POST" action="{{ route('register') }}">
         @csrf
 
         @if (Laraauth::shouldAllowFirstAndLastName())

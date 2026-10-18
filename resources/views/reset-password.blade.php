@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form class="auth-form" method="POST" action="{{ route('password.store') }}">
+    <form id="reset-password-form" class="auth-form" method="POST" action="{{ route('password.store') }}">
         @csrf
 
         <!-- Password Reset Token -->
