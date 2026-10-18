@@ -25,6 +25,6 @@ class GetUserRegistrationAttributes
             $attributes['name'] = $request->name;
         }
 
-        return $attributes;
+        return Laraauth::applyRegistrationAttributesFilter($attributes, $request);
     }
 }

@@ -27,6 +27,6 @@ class GetRegistrationValidationRules
             $rules['name'] = ['required', 'string', 'max:255'];
         }
 
-        return $rules;
+        return Laraauth::applyRegistrationValidationRulesFilter($rules, $request);
     }
 }

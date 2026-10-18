@@ -2,6 +2,9 @@
 
 namespace NjDigitalLab\Laraauth;
 
+use Closure;
+use Illuminate\Http\Request;
+
 class Laraauth
 {
     /**
@@ -88,6 +91,16 @@ class Laraauth
      * The middlewares to apply to the auth routes.
      */
     private static array $authRoutesMiddlewares = ['web', 'auth'];
+
+    /**
+     * The filter for the registration validation rules.
+     */
+    private static $filterRegistrationValidationRulesCallback = null;
+
+    /**
+     * The filter for the registration validation rules.
+     */
+    private static $filterRegistrationAttributesCallback = null;
 
     /**
      * Disable our stylesheet.
@@ -332,5 +345,55 @@ class Laraauth
     public static function getAuthRoutesMiddlewares(): array
     {
         return static::$authRoutesMiddlewares;
+    }
+
+    /**
+     * Filter the registration validation rules.
+     * 
+     * 1) $rules - array
+     * 2) $request - instance of Illuminate\Http\Request
+     * 
+     * This callback should return an array of validation rules for registration.
+     */
+    public static function filterRegistrationValidationRules(Closure $callback)
+    {
+        static::$filterRegistrationValidationRulesCallback = $callback;
+    }
+
+    /**
+     * Apply the registration validation rules filter.
+     */
+    public static function applyRegistrationValidationRulesFilter(array $rules, Request $request): array
+    {
+        if (is_null(static::$filterRegistrationValidationRulesCallback)) {
+            return $rules;
+        }
+
+        return call_user_func(static::$filterRegistrationValidationRulesCallback, $rules, $request);
+    }
+
+    /**
+     * Filter the registration attributes.
+     * 
+     * 1) $attributes - array
+     * 2) $request - instance of Illuminate\Http\Request
+     * 
+     * This callback should return an array of user attributes for registration.
+     */
+    public static function filterRegistrationAttributes(Closure $callback)
+    {
+        static::$filterRegistrationAttributesCallback = $callback;
+    }
+
+    /**
+     * Apply the registration validation rules filter.
+     */
+    public static function applyRegistrationAttributesFilter(array $attributes, Request $request): array
+    {
+        if (is_null(static::$filterRegistrationAttributesCallback)) {
+            return $attributes;
+        }
+
+        return call_user_func(static::$filterRegistrationAttributesCallback, $attributes, $request);
     }
 }

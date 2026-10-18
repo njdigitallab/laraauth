@@ -11,6 +11,8 @@
 - [Forgot Password](#Forgot-Password)
 - [Confirm Password](#Confirm-Password)
 - [Show Site Logo](#Show-Site-Logo)
+- [Filter Registration Rules](#Filter-Registration-Rules)
+- [Filter Registration Attributes](#Filter-Registration-Attributes)
 
 ## About
 
@@ -119,5 +121,46 @@ use NjDigitalLab\Laraauth\Laraauth;
 public function boot(): void
 {
     Laraauth::showLogo(asset('images/logo.png'));
+}
+```
+
+## Filter Registration Rules
+
+You can filter registration rules by calling the `Laraauth::filterRegistrationValidationRules()` method in your AppServiceProvider register method. It accepts a closure as it's only argument. The current rules array and request object is passed to the closure as arguments.
+
+```php
+use NjDigitalLab\Laraauth\Laraauth;
+
+/**
+ * Register any application services.
+ */
+public function register(): void
+{
+    Laraauth::filterRegistrationValidationRules(function ($rules, $request) {
+        // Filter rules....
+
+        return $rules;
+    });
+}
+```
+
+### Filter Registration Attributes
+
+You can filter the registration attributes by calling the `Laraauth::filterRegistrationAttributes()` method in your AppServiceProvider register method. It accepts a closure as it's only argument. The current attributes array and request object is passed to the closure as arguments.
+
+```php
+use NjDigitalLab\Laraauth\Laraauth;
+
+/**
+ * Register any application services.
+ */
+public function register(): void
+{
+    Laraauth::filterRegistrationAttributes(function ($attributes, $request) {
+        // Filter attributes....
+        $attributes['name'] = 'Some Name';
+
+        return $attributes;
+    });
 }
 ```
