@@ -1,43 +1,36 @@
-### Laraauth
+## Laraauth
 
-### About
+## Table of Contents
+- [About](#About)
+- [Installation](#Installation)
+- [Name](#Name)
+- [Login](#Login)
+- [Logout](#Logout)
+- [Registration](#Registration)
+- [Verify Email](#Verify-Email)
+- [Forgot Password](#Forgot-Password)
+- [Confirm Password](#Confirm-Password)
+- [Show Site Logo](#Show-Site-Logo)
+
+## About
 
 Laraauth is an authentication package for Laravel.
 
-### Installation
+## Installation
 
 Install with `composer require njdigitallab/laraauth`.
 
-### Getting Started
+## Getting Started
 
-There are 2 steps to getting started.
+Publish the package assets by running `php artisan vendor:publish --tag=laraauth-assets`.
 
-#### Step 1
-Publish the package assets by running artisan command `php artisan vendor:publish --tag=laraauth-assets`.
-
-If you want to use your own stylesheet, disable the package stylesheet by calling the Laraauth `disableStylesheet` method in your `AppServiceProvider` boot method.
-
-```php
-use NjDigitalLab\Laraauth\Laraauth;
-
-/**
- * Bootstrap any application services.
- */
-public function boot(): void
-{
-    Laraauth::disableStylesheet();
-}
-```
-
-#### Step 2
+## Name
 
 By default, laravel user migration comes with the name column only. If you want to work with first and last name instead, take the following steps:
 
-a) Publish the package migration file with artisan command `php artisan vendor:publish --tag=laraauth-migrations`.
+- Publish the package migration file with `php artisan vendor:publish --tag=laraauth-migrations` then run the `php artisan migrate` command. Alternatively, You can edit the default laravel user migration file and ignore this step.
 
-b) Run the `php artisan migrate` command.
-
-c) In your `AppServiceProvider` boot method, call Laraauth `allowFirstAndLastName` method. This tells the package that we will be working with first and last name instead of name only.
+- In your `AppServiceProvider` boot method, call Laraauth `allowFirstAndLastName` method. This tells the package that we will be working with first and last name instead of name only.
 
 ```php
 use NjDigitalLab\Laraauth\Laraauth;
@@ -51,21 +44,23 @@ public function boot(): void
 }
 ```
 
-d) Update the fillable attributes on the User model.
+- Update the fillable attributes on the User model.
 
 ```php
+// If using attributes
+#[Fillable(['first_name', 'last_name', 'email', 'password'])]
+
+// If defining on the model
 protected $fillable = [
     'first_name', 'last_name', 'email', 'password',
 ];
 ```
 
-Ignore step a and b if you prefer to edit the Laravel default user migration file instead.
-
-### Login
+## Login
 
 Login is available at `/login` url and needs no configuration.
 
-### Logout
+## Logout
 
 To logout, send a post request to the logout route.
 
@@ -79,11 +74,9 @@ To logout, send a post request to the logout route.
 </form>
 ```
 
-### Registration
+## Registration
 
-Registration is available at `/register` url. 
-
-If you are using first name and last name instead of name only for registration, refer to step 2 in the Getting Started section.
+Registration is available at `/register` url.
 
 You can disable registration by calling the Laraauth `disableRegistration` method in your `AppServiceProvider` register method.
 
@@ -99,19 +92,21 @@ public function register(): void
 }
 ```
 
-### Verify Email
+If you are using first name and last name for registration, refer to the [Name](#Name) section.
 
-Verify email works as per the default Laravel configuration. Just apply the `verified` middleware to the respective route and implement the `Illuminate\Contracts\Auth\MustVerifyEmail` contract on the User model.
+## Verify Email
 
-### Forgot Password
+Verify email works as per the Laravel default configuration. Apply the `verified` middleware to the respective route and implement the `Illuminate\Contracts\Auth\MustVerifyEmail` contract on the User model.
+
+## Forgot Password
 
 Forgot password is available at `/forgot-password` url and need no configuration.
 
-### Confirm Password
+## Confirm Password
 
-Confirm password works as per the default laravel configuration. Just apply the `password.confirm` middleware on the respective routes. No further configuration is needed.
+Confirm password works as per the Laravel default configuration. Apply the `password.confirm` middleware to the respective route.
 
-### Show Site Logo
+## Show Site Logo
 
 If you prefer to show a logo instead of the site name, call the Laraauth `showLogo` method in your `AppServiceProvider` boot method and pass the full url to the image file you wish to use.
 

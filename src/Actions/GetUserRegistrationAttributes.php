@@ -22,7 +22,7 @@ class GetUserRegistrationAttributes
             $attributes['first_name'] = $request->first_name;
             $attributes['last_name'] = $request->last_name;
         } else {
-            $attributes['name'] = ['required', 'string', 'max:255'];
+            $attributes['name'] = $request->name;
         }
 
         return $attributes;
