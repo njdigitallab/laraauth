@@ -19,6 +19,8 @@
 
 Laraauth is an authentication package for Laravel.
 
+![Screenshot](screenshot.png)
+
 ## Installation
 
 Install with `composer require njdigitallab/laraauth`.
